@@ -27,8 +27,17 @@ describe("check if can move when hit a mountain, go out the map or makes legit d
   });
 });
 
-describe("check if give correct new position according to obstacles", () => {
+describe("check if give correct new position", () => {
   test("should update position to north", () => {
-    expect(move([3, 2], [[2, 1]], "N", [4, 5]));
+    expect(move([3, 2], "N", [[2, 1]], [4, 5])).toEqual([3, 1]);
+  });
+  test("should update position to south", () => {
+    expect(move([3, 2], "S", [[2, 1]], [4, 5])).toEqual([3, 3]);
+  });
+  test("should update position to west", () => {
+    expect(move([3, 2], "O", [[2, 1]], [4, 5])).toEqual([2, 2]);
+  });
+  test("should update position to east", () => {
+    expect(move([2, 2], "E", [[2, 1]], [4, 5])).toEqual([3, 2]);
   });
 });

@@ -10,20 +10,21 @@ const move = (APosition, AOrientation, M, C) => {
   let ANextPos = APosition;
   switch (AOrientation) {
     case "N":
-      ANextPos[1] += 1;
+      ANextPos[1] -= 1;
       break;
     case "S":
-      ANextPos[1] -= 1;
+      ANextPos[1] += 1;
       break;
     case "E":
       ANextPos[0] += 1;
       break;
-    case "0":
+    case "O":
       ANextPos[0] -= 1;
       break;
   }
 
-  return checkIfCanMove(ANextPos, M, C) ? ANextPos : APosition;
+  return ANextPos;
+  checkIfCanMove(ANextPos, M, C) ? ANextPos : APosition;
 };
 
 module.exports = {
