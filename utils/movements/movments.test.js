@@ -27,7 +27,7 @@ describe("check if can move when hit a mountain, go out the map or makes legit d
   });
 });
 
-describe("check if give correct new position", () => {
+describe("check if give correct new position acording to obstacles", () => {
   test("should update position to north", () => {
     expect(move([3, 2], "N", [[2, 1]], [4, 5])).toEqual([3, 1]);
   });
@@ -42,5 +42,8 @@ describe("check if give correct new position", () => {
   });
   test("should hit a mountain and return previous position", () => {
     expect(move([2, 2], "N", [[2, 1]], [4, 5])).toEqual([2, 2]);
+  });
+  test("should go out the map and return previous position", () => {
+    expect(move([2, 0], "N", [[2, 1]], [4, 5])).toEqual([2, 0]);
   });
 });
