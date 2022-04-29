@@ -7,7 +7,7 @@ const checkIfCanMove = (ANextPos, M, C) => {
 };
 
 const move = (APosition, AOrientation, M, C) => {
-  let ANextPos = APosition;
+  let ANextPos = [...APosition];
   switch (AOrientation) {
     case "N":
       ANextPos[1] -= 1;
@@ -23,8 +23,7 @@ const move = (APosition, AOrientation, M, C) => {
       break;
   }
 
-  return ANextPos;
-  checkIfCanMove(ANextPos, M, C) ? ANextPos : APosition;
+  return checkIfCanMove(ANextPos, M, C) ? ANextPos : APosition;
 };
 
 module.exports = {

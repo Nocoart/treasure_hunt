@@ -40,4 +40,7 @@ describe("check if give correct new position", () => {
   test("should update position to east", () => {
     expect(move([2, 2], "E", [[2, 1]], [4, 5])).toEqual([3, 2]);
   });
+  test("should hit a mountain and return previous position", () => {
+    expect(move([2, 2], "N", [[2, 1]], [4, 5])).toEqual([2, 2]);
+  });
 });
