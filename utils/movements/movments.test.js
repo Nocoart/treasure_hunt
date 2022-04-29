@@ -20,6 +20,15 @@ describe("check if can move when hit a mountain, go out the map or makes legit d
     ).toBe(false);
   });
   test("should be out of map and return false", () => {
-    expect(checkIfCanMove([4, 6], [[2, 1]], [4, 5])).toBe(false);
+    expect(checkIfCanMove([3, 6], [[2, 1]], [4, 5])).toBe(false);
+  });
+  test("should be out of map and return false", () => {
+    expect(checkIfCanMove([4, 3], [[2, 1]], [4, 5])).toBe(false);
+  });
+});
+
+describe("check if give correct new position according to obstacles", () => {
+  test("should update position to north", () => {
+    expect(move([3, 2], [[2, 1]], "N", [4, 5]));
   });
 });
