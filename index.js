@@ -21,7 +21,7 @@ const T = splitInput.filter((el) => {
 });
 const A = splitInput[splitInput.length - 1];
 
-// get numbers
+// parse arrays to int
 T.forEach((treasure) => {
   treasure.forEach((str, index) => (treasure[index] = parseInt(str)));
 });
@@ -31,11 +31,6 @@ M.forEach((mountain) => {
 let APosition = [parseInt(A[2]), parseInt(A[3])];
 let AOrientation = A[4];
 let AInstruction = A[5];
-
-console.log("APosition", APosition);
-console.log("AOrientation", AOrientation);
-console.log("AInstruction", AInstruction);
-console.log(M);
 
 //
 

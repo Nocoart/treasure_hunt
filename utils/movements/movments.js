@@ -23,7 +23,10 @@ const move = (APosition, AOrientation, M, C) => {
       break;
   }
 
-  return checkIfCanMove(ANextPos, M, C) ? ANextPos : APosition;
+  return {
+    APosition: checkIfCanMove(ANextPos, M, C) ? ANextPos : APosition,
+    hasMoved: checkIfCanMove(ANextPos, M, C),
+  };
 };
 
 module.exports = {

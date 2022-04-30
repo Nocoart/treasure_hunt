@@ -29,21 +29,21 @@ describe("check if can move when hit a mountain, go out the map or makes legit d
 
 describe("check if give correct new position acording to obstacles", () => {
   test("should update position to north", () => {
-    expect(move([3, 2], "N", [[2, 1]], [4, 5])).toEqual([3, 1]);
+    expect(move([3, 2], "N", [[2, 1]], [4, 5])).toEqual({ APosition: [3, 1], hasMoved: true });
   });
   test("should update position to south", () => {
-    expect(move([3, 2], "S", [[2, 1]], [4, 5])).toEqual([3, 3]);
+    expect(move([3, 2], "S", [[2, 1]], [4, 5])).toEqual({ APosition: [3, 3], hasMoved: true });
   });
   test("should update position to west", () => {
-    expect(move([3, 2], "O", [[2, 1]], [4, 5])).toEqual([2, 2]);
+    expect(move([3, 2], "O", [[2, 1]], [4, 5])).toEqual({ APosition: [2, 2], hasMoved: true });
   });
   test("should update position to east", () => {
-    expect(move([2, 2], "E", [[2, 1]], [4, 5])).toEqual([3, 2]);
+    expect(move([2, 2], "E", [[2, 1]], [4, 5])).toEqual({ APosition: [3, 2], hasMoved: true });
   });
   test("should hit a mountain and return previous position", () => {
-    expect(move([2, 2], "N", [[2, 1]], [4, 5])).toEqual([2, 2]);
+    expect(move([2, 2], "N", [[2, 1]], [4, 5])).toEqual({ APosition: [2, 2], hasMoved: false });
   });
   test("should go out the map and return previous position", () => {
-    expect(move([2, 0], "N", [[2, 1]], [4, 5])).toEqual([2, 0]);
+    expect(move([2, 0], "N", [[2, 1]], [4, 5])).toEqual({ APosition: [2, 0], hasMoved: false });
   });
 });
