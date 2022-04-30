@@ -1,4 +1,4 @@
-const { checkIfCanMove, move } = require("./movments");
+const { checkIfCanMove, move } = require("./goForward");
 
 describe("check if can move when hit a mountain, go out the map or makes legit deplacement", () => {
   test("should be valid move and return true", () => {

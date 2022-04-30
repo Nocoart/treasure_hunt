@@ -42,7 +42,7 @@ let AInstruction = A[5];
 
 //CREATE OUTPUT FILE
 
-fs.writeFile("output.txt", "put BLABLA here", (err) => {
+fs.writeFile("output.txt", "put BLABLA here \nNew line", (err) => {
   if (err) throw err;
   console.log("fichier crée");
 });
