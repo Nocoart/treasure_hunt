@@ -18,4 +18,12 @@ describe("check if can move when hit a mountain, go out the map or makes legit d
       ])
     ).toBe(1);
   });
+  test("should be on an empty trasure and return false", () => {
+    expect(
+      checkIfTreasure([2, 1], true, [
+        [4, 1, 2],
+        [2, 1, 0],
+      ])
+    ).toBe(false);
+  });
 });
