@@ -4,7 +4,7 @@ const turn = (angle, AOrientation) => {
   let newOrientation = "";
   switch (angle) {
     case "D":
-      if (index < 2) newOrientation = possibleOrientation[index + 1];
+      if (index < 3) newOrientation = possibleOrientation[index + 1];
       else newOrientation = possibleOrientation[0];
       break;
     case "G":

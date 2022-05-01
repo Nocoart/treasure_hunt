@@ -1,4 +1,4 @@
-const checkIfTreasure = require("./treasuresCheck");
+const checkIfTreasure = require("./checkIfTreasure");
 
 describe("check if can move when hit a mountain, go out the map or makes legit deplacement", () => {
   test("should not have moved and return false", () => {

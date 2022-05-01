@@ -1,5 +1,8 @@
 const readline = require("../src/readLine/readline");
 const fs = require("fs");
+const { goForward } = require("./utils/goForward/goForward");
+const checkIfTreasure = require("./utils/checkIfTreasure/checkIfTreasure");
+const turn = require("./utils/turn/turn");
 
 // gather inputs
 const inputs = [];
@@ -32,11 +35,28 @@ let APosition = [parseInt(A[2]), parseInt(A[3])];
 let AOrientation = A[4];
 let AInstruction = A[5];
 
-//
+let foundTreasures = 0;
+let hasMoved = false;
 
-//
-
-//
+//simulation loop
+for (let i = 0; i < AInstruction.length; i++) {
+  if (AInstruction[i] === "A") {
+    const position = goForward(APosition, AOrientation, M, C);
+    hasMoved = position.hasMoved;
+    APosition = position.APosition;
+    console.log(position);
+    const treasureIndex = checkIfTreasure(APosition, hasMoved, T);
+    if (treasureIndex !== false) {
+      foundTreasures++;
+      T[treasureIndex][2]--;
+      console.log(foundTreasures);
+    }
+  } else {
+    const newOrientation = turn(AInstruction[i], AOrientation);
+    AOrientation = newOrientation;
+    console.log(AOrientation);
+  }
+}
 
 //
 

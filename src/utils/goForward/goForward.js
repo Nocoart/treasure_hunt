@@ -6,7 +6,7 @@ const checkIfCanMove = (ANextPos, M, C) => {
   return true;
 };
 
-const move = (APosition, AOrientation, M, C) => {
+const goForward = (APosition, AOrientation, M, C) => {
   let ANextPos = [...APosition];
   switch (AOrientation) {
     case "N":
@@ -31,5 +31,5 @@ const move = (APosition, AOrientation, M, C) => {
 
 module.exports = {
   checkIfCanMove,
-  move,
+  goForward,
 };
