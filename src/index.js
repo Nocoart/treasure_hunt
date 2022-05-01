@@ -59,8 +59,6 @@ for (let i = 0; i < AInstruction.length; i++) {
   }
 }
 
-//
-
 //CREATE OUTPUT FILE
 const MList = M.map((mountain) => `M - ${mountain[0]} - ${mountain[1]}`);
 const TList = [];
