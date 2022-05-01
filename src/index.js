@@ -34,6 +34,7 @@ M.forEach((mountain) => {
 let APosition = [parseInt(A[2]), parseInt(A[3])];
 let AOrientation = A[4];
 let AInstruction = A[5];
+const AName = A[1];
 
 let foundTreasures = 0;
 let hasMoved = false;
@@ -44,25 +45,34 @@ for (let i = 0; i < AInstruction.length; i++) {
     const position = goForward(APosition, AOrientation, M, C);
     hasMoved = position.hasMoved;
     APosition = position.APosition;
-    console.log(position);
+    // console.log(position);
     const treasureIndex = checkIfTreasure(APosition, hasMoved, T);
     if (treasureIndex !== false) {
       foundTreasures++;
       T[treasureIndex][2]--;
-      console.log(foundTreasures);
+      // console.log(foundTreasures);
     }
   } else {
     const newOrientation = turn(AInstruction[i], AOrientation);
     AOrientation = newOrientation;
-    console.log(AOrientation);
+    // console.log(AOrientation);
   }
 }
 
 //
 
 //CREATE OUTPUT FILE
+const MList = M.map((mountain) => `M - ${mountain[0]} - ${mountain[1]}`);
+const TList = [];
+for (let i = 0; i < T.length; i++) {
+  if (T[i][2]) TList.push(`T - ${T[i][0]} - ${T[i][1]} - ${T[i][2]}`);
+}
 
-fs.writeFile("output.txt", "put BLABLA here \nNew line", (err) => {
+const outputStr = `C - ${C.join(" - ")}\n${MList.join("\n")}\n${TList.join("\n")}\nA - ${AName} - ${APosition.join(
+  " - "
+)} - ${AOrientation} - ${foundTreasures}`;
+
+fs.writeFile("output.txt", outputStr, (err) => {
   if (err) throw err;
   console.log("fichier crée");
 });
