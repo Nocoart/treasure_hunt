@@ -1,4 +1,4 @@
-const readline = require("./readline");
+const readline = require("../src/readLine/readline");
 const fs = require("fs");
 
 // gather inputs
