@@ -10,8 +10,8 @@ function* fileReader(filePath) {
   }
 }
 
-function readline() {
+const readline = () => {
   return reader.next().value;
-}
+};
 
 module.exports = readline;
