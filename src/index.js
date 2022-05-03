@@ -16,6 +16,7 @@ const splitInput = inputs.map((el) => el.split("-"));
 // init variables
 const C = splitInput[0].splice(1);
 const M = splitInput.filter((el) => {
+  //used charCodeAt because somehow M wasn't equal to M same for T - curious about that
   if (el[0].charCodeAt() === "M".charCodeAt()) return el.splice(0, 1);
 });
 const T = splitInput.filter((el) => {
